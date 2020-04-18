@@ -8,8 +8,10 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
 
 import { MatTabsModule } from "@angular/material/tabs";
+import { DailyCasesComponent } from './daily-cases/daily-cases.component';
+import { DailyCasesRateComponent } from './daily-cases-rate/daily-cases-rate.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DailyCasesComponent, DailyCasesRateComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
