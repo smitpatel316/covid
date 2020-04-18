@@ -8,16 +8,25 @@ import * as globals from "../global";
   styleUrls: ["./daily-cases-rate.component.css"],
 })
 export class DailyCasesRateComponent implements OnInit {
-  data = [];
-  public options = globals.graphOptions;
+  public data = [];
+  public graphOptions = globals.graphOptions;
+  public loaderOptions = globals.loaderOptions;
   constructor(private api: ApiService) {}
   ngOnInit(): void {
-    this.api.getDailyCases().subscribe((response: Response) => {
+    this.api.getDailyCasesRate().subscribe((response: Response) => {
       const responseData = [];
+      this.graphOptions.colorScheme.domain = [];
       Object.keys(response).forEach((element) => {
         responseData.push({ name: element, value: response[element] });
+        if (response[element] > 0) {
+          // Red
+          this.graphOptions.colorScheme.domain.push("#C70039");
+        } else {
+          // Green
+          this.graphOptions.colorScheme.domain.push("#229954");
+        }
       });
-      this.data = [{ name: "Cases", series: responseData }];
+      this.data = responseData;
     });
   }
 }

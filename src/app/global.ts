@@ -14,3 +14,8 @@ export const graphOptions = {
   },
   showLabels: true,
 };
+
+export const loaderOptions = {
+  color: "primary",
+  mode: "indeterminate",
+};

@@ -10,6 +10,7 @@ import * as globals from "../global";
 export class DailyCasesComponent implements OnInit {
   data = [];
   public options = globals.graphOptions;
+  public loaderOptions = globals.loaderOptions;
   constructor(private api: ApiService) {}
   ngOnInit(): void {
     this.api.getDailyCases().subscribe((response: Response) => {

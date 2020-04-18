@@ -1,12 +1,24 @@
-<ngx-charts-line-chart
-  [scheme]="options.colorScheme"
-  [showXAxisLabel]="options.showXAxisLabel"
-  [showYAxisLabel]="options.showYAxisLabel"
-  [xAxisLabel]="options.xAxisLabel"
-  [yAxisLabel]="options.yAxisLabel"
-  [timeline]="options.timeline"
-  [results]="data"
-  [xAxis]="options.showXAxis"
-  [yAxis]="options.showYAxis"
+<div *ngIf="data.length !== 0">
+  <ngx-charts-bar-vertical
+    [scheme]="graphOptions.colorScheme"
+    [showXAxisLabel]="graphOptions.showXAxisLabel"
+    [showYAxisLabel]="graphOptions.showYAxisLabel"
+    [xAxisLabel]="graphOptions.xAxisLabel"
+    [yAxisLabel]="graphOptions.yAxisLabel"
+    [results]="data"
+    [xAxis]="graphOptions.showXAxis"
+    [yAxis]="graphOptions.showYAxis"
+    [gradient]="false"
+  >
+  </ngx-charts-bar-vertical>
+</div>
+
+<mat-progress-spinner
+  *ngIf="data.length === 0"
+  class="example-margin"
+  [color]="loaderOptions.color"
+  [mode]="loaderOptions.mode"
+  [value]="50"
+  style="margin-top: 5px; margin-left: 5px;"
 >
-</ngx-charts-line-chart>
+</mat-progress-spinner>
