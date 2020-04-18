@@ -15,9 +15,12 @@ export class ApiService {
     });
   }
   getDailyCases() {
-    return this.http.get(this.BACKEND + "canada//daily/cases");
+    return this.http.get(this.BACKEND + "canada/daily/cases");
   }
   getDailyCasesRate() {
-    return this.http.get(this.BACKEND + "canada//daily/rate");
+    return this.http.get(this.BACKEND + "canada/daily/rate");
+  }
+  getDailyActiveCases() {
+    return this.http.get(this.BACKEND + "canada/daily/active");
   }
 }

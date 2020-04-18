@@ -1,4 +1,9 @@
 <mat-tab-group>
+  <mat-tab label="Active Cases">
+    <ng-template matTabContent>
+      <app-daily-cases-active></app-daily-cases-active>
+    </ng-template>
+  </mat-tab>
   <mat-tab label="Daily New Cases">
     <ng-template matTabContent>
       <app-daily-cases></app-daily-cases>

@@ -11,8 +11,9 @@ import { MatTabsModule } from "@angular/material/tabs";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { DailyCasesComponent } from "./daily-cases/daily-cases.component";
 import { DailyCasesRateComponent } from "./daily-cases-rate/daily-cases-rate.component";
+import { DailyCasesActiveComponent } from './daily-cases-active/daily-cases-active.component';
 @NgModule({
-  declarations: [AppComponent, DailyCasesComponent, DailyCasesRateComponent],
+  declarations: [AppComponent, DailyCasesComponent, DailyCasesRateComponent, DailyCasesActiveComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
