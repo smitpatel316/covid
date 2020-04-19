@@ -1,4 +1,12 @@
+<h1>Canada Coronavirus Data</h1>
+<app-info></app-info>
+&nbsp;
 <mat-tab-group>
+  <mat-tab label="Total Cases">
+    <ng-template matTabContent>
+      <app-daily-total-cases></app-daily-total-cases>
+    </ng-template>
+  </mat-tab>
   <mat-tab label="Active Cases">
     <ng-template matTabContent>
       <app-daily-cases-active></app-daily-cases-active>

@@ -23,4 +23,10 @@ export class ApiService {
   getDailyActiveCases() {
     return this.http.get(this.BACKEND + "canada/daily/active");
   }
+  getDailyTotalCases() {
+    return this.http.get(this.BACKEND + "canada/daily/total");
+  }
+  getInfo() {
+    return this.http.get(this.BACKEND + "canada/info");
+  }
 }
