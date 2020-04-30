@@ -1,25 +1,38 @@
-<h1>Canada Coronavirus Data</h1>
-<app-info></app-info>
+<mat-form-field>
+  <mat-label>Region</mat-label>
+  <mat-select [(value)]="selectedRegion">
+    <mat-option
+      (onSelectionChange)="change($event)"
+      *ngFor="let region of regions"
+      [value]="region"
+    >
+      {{ region }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<app-info [region]="selectedRegion"></app-info>
 &nbsp;
 <mat-tab-group>
   <mat-tab label="Total Cases">
     <ng-template matTabContent>
-      <app-daily-total-cases></app-daily-total-cases>
+      <app-daily-total-cases [region]="selectedRegion"></app-daily-total-cases>
     </ng-template>
   </mat-tab>
   <mat-tab label="Active Cases">
     <ng-template matTabContent>
-      <app-daily-cases-active></app-daily-cases-active>
+      <app-daily-cases-active
+        [region]="selectedRegion"
+      ></app-daily-cases-active>
     </ng-template>
   </mat-tab>
   <mat-tab label="Daily New Cases">
     <ng-template matTabContent>
-      <app-daily-cases></app-daily-cases>
+      <app-daily-cases [region]="selectedRegion"></app-daily-cases>
     </ng-template>
   </mat-tab>
   <mat-tab label="Daily Rate of New Cases (&#8706;)">
     <ng-template matTabContent>
-      <app-daily-cases-rate></app-daily-cases-rate>
+      <app-daily-cases-rate [region]="selectedRegion"></app-daily-cases-rate>
     </ng-template>
   </mat-tab>
 </mat-tab-group>

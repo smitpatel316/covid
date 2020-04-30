@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input, OnChanges } from "@angular/core";
 import { ApiService } from "../api.service";
 import * as globals from "../global";
 
@@ -7,13 +7,20 @@ import * as globals from "../global";
   templateUrl: "./daily-cases-rate.component.html",
   styleUrls: ["./daily-cases-rate.component.css"],
 })
-export class DailyCasesRateComponent implements OnInit {
+export class DailyCasesRateComponent implements OnInit, OnChanges {
+  @Input("region") region: string;
   public data = [];
   public graphOptions = globals.graphOptions;
   public loaderOptions = globals.loaderOptions;
   constructor(private api: ApiService) {}
+  ngOnChanges(): void {
+    this.dailyCasesRate();
+  }
   ngOnInit(): void {
-    this.api.getDailyCasesRate().subscribe((response: Response) => {
+    this.dailyCasesRate();
+  }
+  dailyCasesRate() {
+    this.api.getDailyCasesRate(this.region).subscribe((response: Response) => {
       const responseData = [];
       this.graphOptions.colorScheme.domain = [];
       Object.keys(response).forEach((element) => {

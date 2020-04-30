@@ -10,12 +10,13 @@ import { NgxChartsModule } from "@swimlane/ngx-charts";
 import { MatTabsModule } from "@angular/material/tabs";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatGridListModule } from "@angular/material/grid-list";
+import { MatSelectModule } from "@angular/material/select";
 
 import { DailyCasesComponent } from "./daily-cases/daily-cases.component";
 import { DailyCasesRateComponent } from "./daily-cases-rate/daily-cases-rate.component";
 import { DailyCasesActiveComponent } from "./daily-cases-active/daily-cases-active.component";
 import { DailyTotalCasesComponent } from "./daily-total-cases/daily-total-cases.component";
-import { InfoComponent } from './info/info.component';
+import { InfoComponent } from "./info/info.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import { InfoComponent } from './info/info.component';
     MatTabsModule,
     MatProgressSpinnerModule,
     MatGridListModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

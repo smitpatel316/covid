@@ -6,27 +6,32 @@ import { HttpClient } from "@angular/common/http";
 })
 export class ApiService {
   constructor(private http: HttpClient) {}
-  private BACKEND = "https://smit-covid-backend.herokuapp.com/";
-  getAllData() {
-    this.http.get(this.BACKEND + "canada").subscribe((response: Response) => {
-      response["records"].forEach((element) => {
-        console.log(element);
+  private BACKEND = "https://smit-covid-backend.herokuapp.com/api/v1";
+  getRegions() {
+    return this.http.get(this.BACKEND);
+  }
+  getAllData(region) {
+    this.http
+      .get(`${this.BACKEND}/${region}`)
+      .subscribe((response: Response) => {
+        response["records"].forEach((element) => {
+          console.log(element);
+        });
       });
-    });
   }
-  getDailyCases() {
-    return this.http.get(this.BACKEND + "canada/daily/cases");
+  getDailyCases(region) {
+    return this.http.get(`${this.BACKEND}/${region}/daily/cases`);
   }
-  getDailyCasesRate() {
-    return this.http.get(this.BACKEND + "canada/daily/rate");
+  getDailyCasesRate(region) {
+    return this.http.get(`${this.BACKEND}/${region}/daily/rate`);
   }
-  getDailyActiveCases() {
-    return this.http.get(this.BACKEND + "canada/daily/active");
+  getDailyActiveCases(region) {
+    return this.http.get(`${this.BACKEND}/${region}/daily/active`);
   }
-  getDailyTotalCases() {
-    return this.http.get(this.BACKEND + "canada/daily/total");
+  getDailyTotalCases(region) {
+    return this.http.get(`${this.BACKEND}/${region}/daily/total`);
   }
-  getInfo() {
-    return this.http.get(this.BACKEND + "canada/info");
+  getInfo(region) {
+    return this.http.get(`${this.BACKEND}/${region}/info`);
   }
 }

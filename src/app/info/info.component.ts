@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input, OnChanges } from "@angular/core";
 import { ApiService } from "../api.service";
 export interface Tile {
   color: string;
@@ -11,7 +11,9 @@ export interface Tile {
   templateUrl: "./info.component.html",
   styleUrls: ["./info.component.css"],
 })
-export class InfoComponent implements OnInit {
+export class InfoComponent implements OnInit, OnChanges {
+  @Input("region") region: string;
+
   tiles: Tile[] = [
     { text: "", cols: 2, rows: 1, color: "#EBF5FB" },
     { text: "", cols: 2, rows: 1, color: "#D6DBDF" },
@@ -20,8 +22,15 @@ export class InfoComponent implements OnInit {
   ];
   constructor(private api: ApiService) {}
 
+  ngOnChanges() {
+    this.info();
+  }
+
   ngOnInit(): void {
-    this.api.getInfo().subscribe((response: Array<string>) => {
+    this.info();
+  }
+  info() {
+    this.api.getInfo(this.region).subscribe((response: Array<string>) => {
       for (let i = 0; i < response.length; i++) {
         this.tiles[i].text = response[i];
       }
