@@ -17,6 +17,7 @@ import { DailyCasesRateComponent } from "./daily-cases-rate/daily-cases-rate.com
 import { DailyCasesActiveComponent } from "./daily-cases-active/daily-cases-active.component";
 import { DailyTotalCasesComponent } from "./daily-total-cases/daily-total-cases.component";
 import { InfoComponent } from "./info/info.component";
+import { DailyRecoveriesComponent } from './daily-recoveries/daily-recoveries.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { InfoComponent } from "./info/info.component";
     DailyCasesActiveComponent,
     DailyTotalCasesComponent,
     InfoComponent,
+    DailyRecoveriesComponent,
   ],
   imports: [
     BrowserModule,
