@@ -35,6 +35,11 @@
       <app-daily-recoveries [region]="selectedRegion"></app-daily-recoveries>
     </ng-template>
   </mat-tab>
+  <mat-tab label="Daily Testings">
+    <ng-template matTabContent>
+      <app-daily-tests [region]="selectedRegion"></app-daily-tests>
+    </ng-template>
+  </mat-tab>
   <mat-tab label="Daily Rate of New Cases (&#8706;)">
     <ng-template matTabContent>
       <app-daily-cases-rate [region]="selectedRegion"></app-daily-cases-rate>

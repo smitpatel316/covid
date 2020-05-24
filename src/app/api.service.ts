@@ -34,6 +34,9 @@ export class ApiService {
   getDailyRecoveries(region) {
     return this.http.get(`${this.BACKEND}/${region}/daily/recoveries`);
   }
+  getDailyTestings(region) {
+    return this.http.get(`${this.BACKEND}/${region}/daily/tested`);
+  }
   getInfo(region) {
     return this.http.get(`${this.BACKEND}/${region}/info`);
   }
